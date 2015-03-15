@@ -1,0 +1,11 @@
+# Blacklist everything
+*
+# Whitelist all directories
+!*/
+# Whitelist the file you're interested in. 
+!*.sbt
+!*.scala
+!LICENSE
+
+# Blacklist Fliflop for now
+JkFlipFlop/
