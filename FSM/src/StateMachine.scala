@@ -1,6 +1,7 @@
-/**
- * Created by geoffrey on 01/03/15.
- */
+/*******************************************************************************
+  * Copyright (c) 2015 Geoffrey Ndu. Distributed under the MIT License.
+  * See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT.
+  ******************************************************************************/
 
 import Chisel._
 
@@ -68,9 +69,6 @@ class StateMachine extends Module {
 
 
 
-
-
-
   io.out_en := (mem_state === read1) || (mem_state === read2)
   io.write_en := (mem_state === write)
   io.ack := (mem_state === write) || (mem_state === read2)
@@ -107,13 +105,27 @@ class StateMachineTest(c: StateMachine) extends Tester(c) {
   expect(c.io.out_en, 1)
   expect(c.io.write_en, 0)
   expect(c.io.ack, 1)
+  step(1)
+  expect(c.io.out_en, 0)
+  expect(c.io.write_en, 0)
+  expect(c.io.ack, 0)
+  step(1)
+  expect(c.io.out_en, 1)
+  expect(c.io.write_en, 0)
+  expect(c.io.ack, 0)
 
 
 }
 
-object StateMachineTester {
+object  StateMachineTop {
   def main(args: Array[String]): Unit = {
-    chiselMainTest(Array[String]("--backend", "c", "--compile", "--test", "--genHarness"),
-      () => Module(new StateMachine())) { c => new StateMachineTest(c)}
+    chiselMain(args, () => Module(new StateMachine()))
   }
 }
+
+//object StateMachineTester {
+//  def main(args: Array[String]): Unit = {
+//    chiselMainTest(Array[String]("--backend", "c", "v","--compile", "--test", "--genHarness"),
+//      () => Module(new StateMachine())) { c => new StateMachineTest(c)}
+//  }
+//}

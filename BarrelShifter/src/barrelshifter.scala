@@ -1,6 +1,7 @@
-/**
- * Created by geoffrey on 12/02/15.
- */
+/*******************************************************************************
+  * Copyright (c) 2015 Geoffrey Ndu. Distributed under the MIT License.
+  * See accompanying file LICENSE or copy at http://opensource.org/licenses/MIT.
+  ******************************************************************************/
 
 import Chisel._
 
