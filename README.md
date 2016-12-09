@@ -10,5 +10,5 @@ Currently available:
 
 1. Adder
 2. AES encryption algrothim
-3. Barrell Shifeter
+3. Barrel Shifter
 4. FSM
