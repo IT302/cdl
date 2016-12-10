@@ -9,6 +9,6 @@ Designer's Library book by Bob Zeidman. **It is work-in-progress**.
 Currently available:
 
 1. Adder
-2. AES encryption algrothim
+2. AES encryption algorithm
 3. Barrel Shifter
 4. FSM
